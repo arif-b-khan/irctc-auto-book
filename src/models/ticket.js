@@ -1,0 +1,6 @@
+
+class Ticket{
+    constructor(Passenger){
+
+    }
+}
