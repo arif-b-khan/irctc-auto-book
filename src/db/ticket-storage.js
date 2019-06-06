@@ -2,9 +2,16 @@ import Bookings from '../models/bookings';
 
 export default class TicketStorage {
     static Key = "TicketStorage";
-
+    static ticketInstance = null;
     constructor() { }
 
+    static getInstance(){
+        if(!TicketStorage.ticketInstance){
+            TicketStorage.ticketInstance = new TicketStorage();
+        }
+        return TicketStorage.ticketInstance;
+    }
+    
     async getBookingById(bookingId) {
         try {
             let bookingResult = await browser.storage.sync.get(TicketStorage.Key);
